@@ -1,0 +1,33 @@
+{
+    "name": "Email Assistant",
+    "description": "AI powered email reply generator",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["activeTab","sidePanel"],
+    "host_permissions": [
+    "http://localhost:8080/*",
+    "*://mail.google.com/*"
+  ],
+  "icons":{
+        "128": "icon-128.png",
+        "16": "icon-16.png",
+        "48": "icon-48.png"
+
+     },
+  "content_scripts": [
+    {
+      "js": ["content.js"],
+      "matches": ["*://mail.google.com/*"],
+      "css": ["content.css"],
+      "run_at": "document_end"
+    }
+  ], "web_accessible_resources": [
+    {
+      "resources": [ "icon-128.png", "icon-16.png", "icon-48.png" ],
+      "matches": [ "*://mail.google.com/*" ]
+    }
+  ],
+    "action": {
+      "default_title": "Email Assistant"
+    }
+  }
